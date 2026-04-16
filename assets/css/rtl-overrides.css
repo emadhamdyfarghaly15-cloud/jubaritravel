@@ -1,0 +1,78 @@
+body {
+	direction: rtl;
+	text-align: right;
+}
+
+.site-header,
+.site-footer,
+.section-heading,
+.entry-content,
+.page-title,
+.trip-meta,
+.contact-grid,
+.booking-layout,
+.single-trip-layout {
+	direction: rtl;
+}
+
+.jubari-search-form__inner,
+.contact-grid,
+.booking-layout,
+.single-trip-layout,
+.about-grid__columns,
+.about-values__grid,
+.trip-gallery__grid,
+.cards-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+.contact-grid > *,
+.booking-layout > *,
+.single-trip-layout > * {
+	flex: 1 1 320px;
+}
+
+.trip-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.trip-pricing-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.trip-pricing-table th,
+.trip-pricing-table td {
+	padding: 12px;
+	border: 1px solid #ddd;
+	text-align: right;
+}
+
+.button,
+button,
+input[type="submit"] {
+	cursor: pointer;
+}
+
+.trip-gallery__grid img,
+.trip-gallery__single img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.section-space {
+	padding: 60px 0;
+}
+
+.section-space-sm {
+	padding: 35px 0;
+}
+
+.section-muted {
+	background: #f7f7f7;
+}
