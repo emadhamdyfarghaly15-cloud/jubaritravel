@@ -1,0 +1,287 @@
+/*
+Theme Name: Jubari Travel Theme
+Theme URI: https://yoursite.com/jubari-theme
+Author: Your Name
+Author URI: https://yoursite.com
+Description: A fully RTL-ready Arabic travel agency theme with destinations, trip packages, booking forms, and multilingual support. Inspired by modern travel agency designs.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.5
+Requires PHP: 8.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: jubari-theme
+Domain Path: /languages
+Tags: rtl-language-support, translation-ready, custom-logo, custom-menu, featured-images, theme-options, travel, arabic
+*/
+
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+:root {
+    /* Brand Colors — customize to your own brand */
+    --jt-primary: #1B5E3B;         /* Deep green */
+    --jt-primary-light: #2E7D52;
+    --jt-primary-dark: #0D3F25;
+    --jt-secondary: #D4A843;       /* Gold accent */
+    --jt-secondary-light: #E5C76E;
+    --jt-accent: #E8491D;          /* CTA orange-red */
+
+    /* Neutrals */
+    --jt-white: #FFFFFF;
+    --jt-off-white: #F8F9FA;
+    --jt-light-gray: #E9ECEF;
+    --jt-mid-gray: #6C757D;
+    --jt-dark-gray: #343A40;
+    --jt-black: #1A1A2E;
+
+    /* Typography */
+    --jt-font-primary: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    --jt-font-heading: 'Tajawal', 'Cairo', sans-serif;
+    --jt-font-size-base: 1rem;       /* 16px */
+    --jt-font-size-sm: 0.875rem;     /* 14px */
+    --jt-font-size-lg: 1.125rem;     /* 18px */
+    --jt-font-size-xl: 1.5rem;       /* 24px */
+    --jt-font-size-2xl: 2rem;        /* 32px */
+    --jt-font-size-3xl: 2.5rem;      /* 40px */
+    --jt-font-size-hero: 3.5rem;     /* 56px */
+    --jt-line-height: 1.7;
+    --jt-line-height-heading: 1.3;
+
+    /* Spacing */
+    --jt-space-xs: 0.25rem;
+    --jt-space-sm: 0.5rem;
+    --jt-space-md: 1rem;
+    --jt-space-lg: 1.5rem;
+    --jt-space-xl: 2rem;
+    --jt-space-2xl: 3rem;
+    --jt-space-3xl: 4rem;
+    --jt-space-section: 5rem;
+
+    /* Layout */
+    --jt-container-max: 1200px;
+    --jt-container-wide: 1400px;
+    --jt-sidebar-width: 320px;
+    --jt-border-radius: 8px;
+    --jt-border-radius-lg: 16px;
+
+    /* Shadows */
+    --jt-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --jt-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --jt-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --jt-shadow-card: 0 2px 15px rgba(0, 0, 0, 0.08);
+
+    /* Transitions */
+    --jt-transition: 0.3s ease;
+    --jt-transition-slow: 0.5s ease;
+
+    /* Z-index scale */
+    --jt-z-dropdown: 100;
+    --jt-z-sticky: 200;
+    --jt-z-overlay: 300;
+    --jt-z-modal: 400;
+    --jt-z-whatsapp: 500;
+}
+
+/* ==========================================================================
+   Base Reset & Global Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--jt-font-primary);
+    font-size: var(--jt-font-size-base);
+    line-height: var(--jt-line-height);
+    color: var(--jt-dark-gray);
+    background-color: var(--jt-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL body class applied by WordPress automatically */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--jt-font-heading);
+    line-height: var(--jt-line-height-heading);
+    color: var(--jt-black);
+    font-weight: 700;
+}
+
+h1 { font-size: var(--jt-font-size-3xl); }
+h2 { font-size: var(--jt-font-size-2xl); }
+h3 { font-size: var(--jt-font-size-xl); }
+
+a {
+    color: var(--jt-primary);
+    text-decoration: none;
+    transition: color var(--jt-transition);
+}
+
+a:hover,
+a:focus {
+    color: var(--jt-primary-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+.jt-container {
+    width: 100%;
+    max-width: var(--jt-container-max);
+    margin-inline: auto;
+    padding-inline: var(--jt-space-lg);
+}
+
+.jt-container--wide {
+    max-width: var(--jt-container-wide);
+}
+
+.jt-section {
+    padding-block: var(--jt-space-section);
+}
+
+.jt-section--gray {
+    background-color: var(--jt-off-white);
+}
+
+.jt-grid {
+    display: grid;
+    gap: var(--jt-space-xl);
+}
+
+.jt-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.jt-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.jt-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Section Headers */
+.jt-section-header {
+    text-align: center;
+    margin-bottom: var(--jt-space-3xl);
+}
+
+.jt-section-header__subtitle {
+    display: inline-block;
+    color: var(--jt-secondary);
+    font-size: var(--jt-font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--jt-space-sm);
+}
+
+.jt-section-header__title {
+    font-size: var(--jt-font-size-2xl);
+    position: relative;
+    padding-bottom: var(--jt-space-lg);
+}
+
+.jt-section-header__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--jt-secondary);
+    border-radius: 2px;
+}
+
+/* Buttons */
+.jt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jt-space-sm);
+    padding: 0.75rem 2rem;
+    font-family: var(--jt-font-primary);
+    font-size: var(--jt-font-size-base);
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: var(--jt-border-radius);
+    cursor: pointer;
+    transition: all var(--jt-transition);
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.jt-btn--primary {
+    background-color: var(--jt-primary);
+    color: var(--jt-white);
+    border-color: var(--jt-primary);
+}
+
+.jt-btn--primary:hover {
+    background-color: var(--jt-primary-dark);
+    border-color: var(--jt-primary-dark);
+    color: var(--jt-white);
+}
+
+.jt-btn--secondary {
+    background-color: var(--jt-secondary);
+    color: var(--jt-white);
+    border-color: var(--jt-secondary);
+}
+
+.jt-btn--outline {
+    background-color: transparent;
+    color: var(--jt-primary);
+    border-color: var(--jt-primary);
+}
+
+.jt-btn--outline:hover {
+    background-color: var(--jt-primary);
+    color: var(--jt-white);
+}
+
+.jt-btn--whatsapp {
+    background-color: #25D366;
+    color: var(--jt-white);
+    border-color: #25D366;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .jt-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    .jt-grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --jt-font-size-hero: 2.25rem;
+        --jt-font-size-3xl: 2rem;
+        --jt-font-size-2xl: 1.5rem;
+        --jt-space-section: 3rem;
+    }
+
+    .jt-grid--4,
+    .jt-grid--3,
+    .jt-grid--2 {
+        grid-template-columns: 1fr;
+    }
+}

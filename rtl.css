@@ -1,0 +1,91 @@
+/*
+ * RTL.css — Automatically loaded by WordPress when locale is RTL
+ * Only contains directional overrides not handled by logical properties
+ */
+
+/* Fix any LTR-specific positioning */
+.jt-hero__search-form .search-field {
+    border-radius: 0 var(--jt-border-radius) var(--jt-border-radius) 0;
+}
+
+.jt-hero__search-form .search-submit {
+    border-radius: var(--jt-border-radius) 0 0 var(--jt-border-radius);
+}
+
+/* Navigation dropdown alignment */
+.jt-nav__dropdown {
+    left: auto;
+    right: 0;
+}
+
+/* Breadcrumb separator */
+.jt-breadcrumb__separator {
+    transform: scaleX(-1);
+}
+
+/* Sliders direction */
+.swiper-rtl .swiper-button-next::after {
+    content: 'prev';
+}
+.swiper-rtl .swiper-button-prev::after {
+    content: 'next';
+}
+
+/* Timeline / Itinerary line position */
+.jt-itinerary__timeline::before {
+    left: auto;
+    right: 20px;
+}
+
+.jt-itinerary__day-marker {
+    left: auto;
+    right: 8px;
+}
+
+/* Form input icons */
+.jt-form__icon {
+    left: auto;
+    right: var(--jt-space-md);
+}
+
+.jt-form__input--with-icon {
+    padding-left: var(--jt-space-md);
+    padding-right: calc(var(--jt-space-md) + 24px + var(--jt-space-sm));
+}
+
+/* Card badge positioning */
+.jt-card__badge {
+    left: auto;
+    right: var(--jt-space-md);
+}
+
+/* List markers */
+.jt-list--check li::before {
+    margin-left: var(--jt-space-sm);
+    margin-right: 0;
+}
+
+/* Floating WhatsApp button */
+.jt-whatsapp-float {
+    right: auto;
+    left: var(--jt-space-xl);
+}
+
+/* Blockquote border */
+blockquote {
+    border-left: none;
+    border-right: 4px solid var(--jt-secondary);
+    padding-left: 0;
+    padding-right: var(--jt-space-lg);
+}
+
+/* Footer social icons spacing */
+.jt-footer__social a + a {
+    margin-left: 0;
+    margin-right: var(--jt-space-sm);
+}
+
+/* Swiper/carousel pagination */
+.jt-testimonials .swiper-pagination {
+    direction: ltr; /* Prevent dot reversal */
+}
